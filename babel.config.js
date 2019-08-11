@@ -1,3 +1,5 @@
+const packagebind = require('packagebind');
+
 const babelConfig = {
   presets: ['react-app'],
   plugins: [
@@ -12,7 +14,12 @@ const babelConfig = {
         },
       },
     ],
+    ['module-resolver', {
+      'alias': {
+        'react-number-format': '../react-number-format/src/number_format.js',
+      },
+    }],
   ],
 };
 
-module.exports = babelConfig;
+module.exports = packagebind(babelConfig);
